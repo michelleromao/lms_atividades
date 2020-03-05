@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Exercício 02</title>
+  </head>
+  <body>
+    <div>
+      <label for="drink">Cadastrar bebida</label>
+      <input name="drink" id="drink" type="text" />
+      <button onclick="adddrink()">adicionar</button> <br /><br />
+      <p>Lista de bebidas cadastradas</p>
+      <ol id="lista">
+        <li>
+          Café
+        </li>
+        <li>
+          Leite
+        </li>
+        <li>
+          Água
+        </li>
+      </ol>
+    </div>
+
+    <script>
+      function adddrink() {
+        var drink = document.getElementById("drink").value;
+        var ol = document.getElementById("lista");
+        var li = document.createElement("li");
+        li.innerHTML = drink;
+        ol.appendChild(li);
+      }
+    </script>
+  </body>
+</html>

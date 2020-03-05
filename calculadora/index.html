@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="number" id="number"></div>
+      <div class="res" id="res"></div>
+
+      <div class="body-calculator">
+        <button class="tecla" value="del" onclick="clearC()">AC</button>
+        <div class="tecla"></div>
+        <button class="tecla" onclick="op('%')">%</button>
+        <button class="tecla op" value="/" onclick="op('/')">/</button>
+
+        <button class="tecla" value="7" onclick="numero(7)">7</button>
+        <button class="tecla" value="8" onclick="numero(8)">8</button>
+        <button class="tecla" value="9" onclick="numero(9)">9</button>
+        <button class="tecla op" value="x" onclick="op('*')">x</button>
+
+        <button class="tecla" value="6" onclick="numero(6)">6</button>
+        <button class="tecla" value="5" onclick="numero(5)">5</button>
+        <button class="tecla" value="4" onclick="numero(4)">4</button>
+        <button class="tecla op" value="-" onclick="op('-')">-</button>
+
+        <button class="tecla" value="3" onclick="numero(3)">3</button>
+        <button class="tecla" value="2" onclick="numero(2)">2</button>
+        <button class="tecla" value="1" onclick="numero(1)">1</button>
+        <button class="tecla op" value="+" onclick="op('+')">+</button>
+
+        <button class="tecla" onclick="numero(0)">0</button>
+        <div class="tecla"></div>
+        <div class="tecla"></div>
+
+        <button class="tecla op equal" value="=" onclick="equal('=')">=</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

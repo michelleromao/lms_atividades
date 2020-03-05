@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Exercício 1</title>
+  </head>
+  <body>
+    <div>
+      <label for="num1">Número 1:</label>
+      <input name="num1" id="num1" type="number" />
+      <button onclick="somar()">somar</button><br /><br />
+      <label for="num2">Número 2:</label>
+      <input name="num2" id="num2" type="number" /><br /><br />
+      <label for="res">Resultado:</label>
+      <input name="res" id="res" type="number" readonly />
+    </div>
+    <script>
+      function somar() {
+        var n1 = document.getElementById("num1").value;
+        var n2 = document.getElementById("num2").value;
+        var r = Number(n1) + Number(n2);
+        document.getElementById("res").value = r;
+        document.getElementById("res").style.backgroundColor = "yellow";
+      }
+    </script>
+  </body>
+</html>

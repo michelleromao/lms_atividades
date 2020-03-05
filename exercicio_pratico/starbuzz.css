@@ -1,0 +1,109 @@
+body {
+  background-color: #b5a789;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: small;
+  width: 1000px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div {
+  margin-bottom: 10px;
+  text-align: left;
+}
+#header {
+  background-color: #675c47;
+  width: 100%;
+  margin-top: 20px;
+  height: 108px;
+}
+#headerSlogan {
+  margin-left: 50%;
+}
+
+#premio {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+}
+
+#drinks {
+  background-color: #efe5d0;
+  float: left;
+  width: 15%;
+  padding: 15px;
+  height: 100%;
+}
+
+#main {
+  background: #efe5d0;
+  background-image: url(images/background.gif);
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 42%;
+  padding: 15px;
+  margin-left: 10px;
+  height: 100%;
+}
+#nav {
+  background-color: #efe5d0;
+  width: 100%;
+}
+a {
+  color: #954b4b;
+  text-decoration: none;
+  border-bottom: 0.7px dotted;
+}
+h1 {
+  font-size: 120%;
+  color: #954b4b;
+}
+h2 {
+  font-size: 110%;
+}
+ul {
+  list-style: none;
+  padding: 10px;
+}
+li {
+  display: inline;
+  padding-right: 20px;
+}
+li a {
+  color: #675c47;
+  text-decoration: none;
+  border-bottom: 0.7px dotted;
+}
+span {
+  color: #954b4b;
+  display: inline-block;
+  padding-top: 5px;
+  line-height: 20px;
+}
+#sidebar {
+  background: #efe5d0;
+  background-image: url(images/background.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+  float: right;
+  width: 32%;
+  padding: 15px;
+  margin-left: 10px;
+  text-align: center;
+  height: 100%;
+}
+#sidebar p:last-child {
+  text-align: start;
+}
+
+#footer {
+  background-color: #675c47;
+  color: #efe5d0;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 90%;
+}

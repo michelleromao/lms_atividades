@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Questão 02</title>
+</head>
+
+<style>
+  html,
+  boddy {
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .calc,
+  .res {
+    width: 30%;
+    align-self: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid black;
+    margin-top: 3%;
+    background-color: rgb(203, 255, 244);
+  }
+
+  .calc input {
+    width: 50%;
+  }
+
+  .calc button {
+    width: 20%;
+  }
+
+  span {
+    font-weight: bolder;
+  }
+</style>
+
+<body>
+  <main>
+    <div class="calc">
+      <p><strong> Cálculo de IMC</strong></p>
+
+      <label for="">Peso</label>
+      <input type="number" name="peso" id="peso" placeholder="digite o peso em Kg">
+      <br><br>
+      <label for="">Altura</label>
+      <input type="number" name="altura" id="altura" placeholder="digite a altura em metros">
+      <br><br>
+      <div id="row">
+        <button onclick="calcular()">Calcular</button>
+        <button onclick="limpar()">Limpar</button>
+      </div>
+    </div>
+
+    <div class="res">
+      <p><strong> Resultado</strong></p>
+      <p>Valor do IMC: <span id="valueIMC"></span></p>
+      <p> Classificação: <span id="classific"></span></p>
+    </div>
+  </main>
+
+  <script>
+    function calcular() {
+      let peso = document.getElementById("peso").value;
+      let altura = document.getElementById("altura").value;
+      let valueIMC = document.getElementById("valueIMC");
+      let classific = document.getElementById("classific")
+      peso = Number(peso);
+      altura = Number(altura);
+      let IMC = peso / (altura * altura);
+
+      if (peso === "" || altura == "") {
+        alert("ops, algo esta vazio, amiguinho.");
+      } else {
+        valueIMC.innerHTML = IMC;
+
+        if (IMC < 18.5) {
+          classific.innerHTML = "Magreza";
+        }
+        else if (IMC >= 18.5 && IMC <= 24.9) {
+          classific.innerHTML = "Normal";
+        }
+        else if (IMC >= 25 && IMC <= 29.9) {
+          classific.innerHTML = "Sobrepeso";
+        }
+        else if (IMC >= 30 && IMC <= 39.9) {
+          classific.innerHTML = "Obesidade";
+        }
+        else {
+          classific.innerHTML = "Obesidade grave";
+        }
+      }
+    }
+
+    function limpar() {
+      let valueIMC = document.getElementById("valueIMC");
+      let classific = document.getElementById("classific");
+
+      valueIMC.innerHTML = "";
+      classific.innerHTML = "";
+    }
+
+  </script>
+</body>
+
+</html>

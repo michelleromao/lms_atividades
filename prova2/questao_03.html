@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Questão 03</title>
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  table {
+    width: 90%;
+    text-align: center;
+  }
+
+  tr th {
+    background-color: #222222;
+    border: 1px solid black;
+    font-weight: 600;
+    color: white;
+  }
+
+  tr td {
+    border: 1px solid rgb(226, 226, 226);
+  }
+</style>
+
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>_id</th>
+        <th>nome</th>
+        <th>sexo</th>
+        <th>nascimento</th>
+        <th>cpf</th>
+      </tr>
+    </thead>
+    <tbody id="dados"></tbody>
+  </table>
+
+  <script>
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
+        let listaDeUsuarios = JSON.parse(this.responseText);
+        let tabelaBody = document.getElementById("dados");
+
+        for (let i = 0; i < listaDeUsuarios.length; i++) {
+          let usuario = listaDeUsuarios[i];
+
+          let td1 = document.createElement("td");
+          td1.append(document.createTextNode(usuario._id));
+
+          let td2 = document.createElement("td");
+          td2.appendChild(document.createTextNode(usuario.nome));
+
+          let td3 = document.createElement("td");
+          td3.appendChild(document.createTextNode(usuario.sexo));
+
+          let td4 = document.createElement("td");
+          let data = new Date(usuario.nascimento).toLocaleDateString("pt-BR", { timeZone: "UTC" });
+          td4.appendChild(document.createTextNode(data));
+
+          var td5 = document.createElement("td");
+          td5.appendChild(document.createTextNode(usuario.cpf));
+
+          let tr = document.createElement("tr");
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tr.appendChild(td5);
+
+
+          tabelaBody.appendChild(tr);
+        }
+      }
+    };
+    xhttp.open("GET", "http://172.18.104.234:3000/pacientes");
+    xhttp.send(null);
+  </script>
+</body>
+
+</html>

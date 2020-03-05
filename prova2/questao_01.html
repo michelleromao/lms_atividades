@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Questão 01</title>
+</head>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  main {
+    display: flex;
+    flex-flow: column wrap;
+    width: 90%;
+    background-color: rgba(167, 235, 252, 0.199);
+    padding: 10px;
+  }
+
+  h1,
+  h2 {
+    color: #303030;
+    font-size: 1.5em;
+    border-bottom: 1px solid #bebebe;
+    margin-bottom: 3%;
+  }
+
+  input {
+    height: 35px;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+
+  }
+
+  #nome {
+    width: 80%;
+  }
+
+  #valor {
+    width: 30%;
+    padding-left: 10px;
+  }
+
+  button {
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(54, 74, 190);
+    border: 1px solid rgb(43, 63, 173);
+  }
+
+  #add {
+    width: 10%;
+
+  }
+
+  table {
+    width: 80%;
+    align-self: center;
+    border: 1px solid #ddd;
+    justify-content: center;
+    text-align: center;
+  }
+
+  table td button #del {
+    width: 100%;
+  }
+</style>
+
+<body>
+  <main>
+    <h1>Lista de produtos</h1>
+    <input type="text" name="nome" id="nome">
+    <input type="number" name="valor" id="valor" placeholder="R$">
+
+    <button onclick="adicionar()" id="add">adicionar a lista</button>
+
+    <h2>Lista de compras</h2>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1">ID</th>
+          <th colspan="3">Descrição</th>
+          <th colspan="1">Valor</th>
+          <th colspan="1">Excluir</th>
+        </tr>
+      <tbody id="resp">
+
+
+      </tbody>
+      <tr>
+        <td colspan="5" style="text-align: left; padding: 20px 0 0 20px;font-weight: bolder;">Total
+          selecionado</td>
+        <td id="total" style="text-align: center; font-weight: 600;"> 00,00</td>
+      </tr>
+    </table>
+  </main>
+
+  <script>
+    let id = 1;
+    let valorTotal = 0;
+    function adicionar() {
+      let nome = document.getElementById("nome").value;
+      let valor = document.getElementById("valor").value;
+      let tbody = document.getElementById("resp");
+      let valorTot = document.getElementById("total");
+
+      if (nome === "" || valor === "") {
+        alert('algo está vazio')
+      } else {
+        let td1 = document.createElement("td");
+        td1.append(id);
+        let td2 = document.createElement("td");
+        td2.setAttribute("colspan", "3");
+        td2.append(nome);
+
+        let textNode = document.createTextNode("R$ " + valor)
+        let td3 = document.createElement("td");
+        td3.append(textNode);
+        valorTotal += Number(valor);
+        valorTot.innerHTML = `R$ ${valorTotal}`;
+
+        let td4 = document.createElement("td");
+        let button = document.createElement("button");
+        let textBtn = document.createTextNode("excluir");
+
+        button.appendChild(textBtn);
+        button.setAttribute = ("value", valor)
+        console.log(button)
+        td4.appendChild(button);
+
+        let tr = document.createElement("tr");
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+
+
+        tbody.appendChild(tr);
+
+        id++;
+
+        button.onclick = function () {
+          let vTd = button.value;
+          console.log(vTd);
+          tbody.removeChild(tr);
+          valorTotal = valorTotal - Number(vTd);
+          valorTot.innerHTML = "R$" + valorTotal;
+        }
+      }
+
+
+    }
+  </script>
+</body>
+
+</html>

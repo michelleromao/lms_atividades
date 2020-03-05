@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Berkshire+Swash&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>B-day!</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>Lista de aniversário</h1>
+        <label for="name" id="name">Nome: </label
+        ><input type="text" name="iName" id="iName" /><br /><br />
+        <label for="email" id="email">Email: </label
+        ><input type="email" name="iEmail" id="iEmail" /> <br /><br />
+        <label for="data" id="data">Data: </label
+        ><input type="date" name="iDate" id="iDate" /> <br /><br />
+        <div class="wrap">
+          <button id="insert" onclick="inserir()">
+            Inserir
+          </button>
+          <button id="clear" onclick="limpar()">Limpar</button>
+        </div>
+      </div>
+      <div>
+        <h1>Lista de amigos</h1>
+        <table id="tabela">
+          <thead>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>ANIVERSÁRIO</th>
+            <th>EXCLUIR</th>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </main>
+    <script src="./javascript.js"></script>
+  </body>
+</html>
